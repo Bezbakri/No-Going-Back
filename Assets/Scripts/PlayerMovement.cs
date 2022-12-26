@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float movementSpeed = 20f;  // Movement speed of player
+    private float movementSpeed = 3.2f;  // Movement speed of player
     public Vector2 movement;  // Movement axis of player
     public Rigidbody2D rigidbody;  // The rigidbody component
 
