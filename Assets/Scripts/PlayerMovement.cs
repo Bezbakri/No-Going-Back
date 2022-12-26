@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private bool goingUp = false;
     private bool goingLeft = false;
     private bool goingRight = false;
+    private bool goingDown = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
             this.gameObject.transform.localScale = new Vector3(-1, 1, 1);
             goingLeft = true;
             goingRight = false;
+            goingUp = false;
+            goingDown = false;
         }
         else
         {
@@ -44,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
             if (movement.x > 0.01f)
             {
                 goingLeft = false;
+                goingUp = false;
+                goingDown = false;
             }
         }
         if (movement.y > 0.01f)
@@ -51,12 +56,14 @@ public class PlayerMovement : MonoBehaviour
             goingUp = true;
             goingLeft = false;
             goingRight = false;
+            goingDown = false;
         } 
         else if (movement.y < -0.01f)
         {
             goingUp = false;
             goingLeft = false;
             goingRight = false;
+            goingDown = true;
         }
         if (hf == 0)
         {
@@ -70,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Speed", vf);
         animator.SetBool("GoingUp", goingUp);
         animator.SetBool("GoingSide", goingLeft || goingRight);
+        animator.SetBool("GoingDown", goingDown);
     }
 
     void FixedUpdate()
