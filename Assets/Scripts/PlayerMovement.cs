@@ -24,6 +24,16 @@ public class PlayerMovement : MonoBehaviour
         animator = this.GetComponent<Animator>();
     }
 
+    public bool getGoingRight()
+    {
+        return goingRight;
+    }
+
+    public bool getGoingLeft()
+    {
+        return goingLeft;
+    }
+
     // Update is called once per frame
     void Update()
     {

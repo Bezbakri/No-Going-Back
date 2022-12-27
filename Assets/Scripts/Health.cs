@@ -19,6 +19,19 @@ public class Health : MonoBehaviour
         
     }
 
+    public void SetHealth(int maxHealth, int setHealth)
+    {
+        this.MAX_HEALTH = maxHealth;
+        this.health = setHealth;
+    }
+
+    public IEnumerator VisualIndicator(Color color)
+    {
+        GetComponent<SpriteRenderer>().color = color;
+        yield return new WaitForSeconds(0.25f);
+        GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
     public void Damage(int amount)
     {
         if (amount < 0)
@@ -26,6 +39,7 @@ public class Health : MonoBehaviour
             throw new System.ArgumentOutOfRangeException();
         }
         this.health -= amount;
+        StartCoroutine(VisualIndicator(Color.red));
 
         if (health <= 0)
         {
@@ -39,6 +53,8 @@ public class Health : MonoBehaviour
         {
             throw new System.ArgumentOutOfRangeException();
         }
+
+        StartCoroutine(VisualIndicator(Color.green));
 
         if (health + amount > MAX_HEALTH)
         {
