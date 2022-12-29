@@ -186,6 +186,9 @@ MonoBehaviour:
   damage: 5
   data: {fileID: 11400000, guid: bd8a4d2815e52e649b4db1bfddc299c5, type: 2}
   projectileSpawnerPrefab: {fileID: 5582787226098443271, guid: d943c6863736bde41bbf63a75366d88c, type: 3}
+  shadowPrefab: {fileID: 4388620113163535806, guid: df3c2d2ef9a0a4947b87480fa21fdaee, type: 3}
+  lightningAnimPrefab: {fileID: 3927011974182664462, guid: e958f7ee5d588ac4aaee0767fdc5827e, type: 3}
+  lightningPrefab: {fileID: 3576446118636628252, guid: 659514925e9697b4e8080f828c4e2437, type: 3}
 --- !u!1001 &5582787225642481276
 PrefabInstance:
   m_ObjectHideFlags: 0

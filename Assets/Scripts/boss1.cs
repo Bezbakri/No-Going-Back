@@ -10,7 +10,15 @@ public class boss1 : MonoBehaviour
 
     [SerializeField] private GameObject projectileSpawnerPrefab;
 
+    [SerializeField] private GameObject shadowPrefab;
+
+    [SerializeField] private GameObject lightningAnimPrefab;
+
+    [SerializeField] private GameObject lightningPrefab;
+
     private bool reachedHalfHealth = false;
+
+    private bool reachedQuarterHealth = false;
 
     private GameObject player;
 
@@ -21,6 +29,7 @@ public class boss1 : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        SetBossValues();
     }
 
     // Update is called once per frame
@@ -33,11 +42,17 @@ public class boss1 : MonoBehaviour
             anotherProjectileSpawner = Instantiate(projectileSpawnerPrefab, this.transform.position + new Vector3(5, -12.5f, 0), Quaternion.identity);
             thirdProjectileSpawner = Instantiate(projectileSpawnerPrefab, this.transform.position + new Vector3(-5, -12.5f, 0), Quaternion.identity);
         }
+        if (GetComponent<Health>().getHealth() <= GetComponent<Health>().getMaxHealth() / 4 && !reachedQuarterHealth)
+        {
+            reachedQuarterHealth = true;
+            StartCoroutine(SpawnLightning());
+        }
         if (GetComponent<Health>().getHealth() <= 10)
         {
             Destroy(projectileSpawner);
             Destroy(anotherProjectileSpawner);
             Destroy(thirdProjectileSpawner);
+            StopAllCoroutines();
         }
     }
 
@@ -57,5 +72,20 @@ public class boss1 : MonoBehaviour
                 collision.GetComponent<Health>().Damage(damage);
             }
         }
+    }
+
+    private IEnumerator SpawnLightning()
+    {
+        GameObject shadow = Instantiate(shadowPrefab, player.transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(2);
+        GameObject lightningAnim = Instantiate(lightningAnimPrefab, shadow.transform.position + new Vector3(0, 10, 0), Quaternion.identity);
+        yield return new WaitForSeconds(0.5f);
+        GameObject lightning = Instantiate(lightningPrefab, lightningAnim.transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(0.1f);
+        Destroy(shadow);
+        Destroy(lightningAnim); 
+        Destroy(lightning);
+        yield return new WaitForSeconds(5);
+        StartCoroutine(SpawnLightning());
     }
 }
