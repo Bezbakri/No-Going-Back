@@ -8,7 +8,15 @@ public class boss1 : MonoBehaviour
 
     [SerializeField] private EnemyData data;
 
+    [SerializeField] private GameObject projectileSpawnerPrefab;
+
+    private bool reachedHalfHealth = false;
+
     private GameObject player;
+
+    private GameObject projectileSpawner;
+    private GameObject anotherProjectileSpawner;
+    private GameObject thirdProjectileSpawner;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +26,19 @@ public class boss1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (GetComponent<Health>().getHealth() <= GetComponent<Health>().getMaxHealth() / 2 && !reachedHalfHealth)
+        {
+            reachedHalfHealth = true;
+            projectileSpawner = Instantiate(projectileSpawnerPrefab, this.transform.position + new Vector3(0, -15, 0), Quaternion.identity);
+            anotherProjectileSpawner = Instantiate(projectileSpawnerPrefab, this.transform.position + new Vector3(5, -12.5f, 0), Quaternion.identity);
+            thirdProjectileSpawner = Instantiate(projectileSpawnerPrefab, this.transform.position + new Vector3(-5, -12.5f, 0), Quaternion.identity);
+        }
+        if (GetComponent<Health>().getHealth() <= 10)
+        {
+            Destroy(projectileSpawner);
+            Destroy(anotherProjectileSpawner);
+            Destroy(thirdProjectileSpawner);
+        }
     }
 
     private void SetBossValues()

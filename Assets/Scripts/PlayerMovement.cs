@@ -92,6 +92,9 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rigidbody.MovePosition(rigidbody.position + movement * movementSpeed * Time.fixedDeltaTime);
+        if (!animator.GetBool("IsAttacking"))
+        {
+            rigidbody.MovePosition(rigidbody.position + movement * movementSpeed * Time.fixedDeltaTime);
+        }
     }
 }

@@ -43,8 +43,11 @@ public class boss1projectile : MonoBehaviour
             if (collision.GetComponent<Health>() != null)
             {
                 collision.GetComponent<Health>().Damage(damage);
-                this.GetComponent<Health>().Damage(100000);
             }
+        }
+        if (collision.GetComponent<Rigidbody2D>() != null && !collision.CompareTag("boss1"))
+        {
+            this.GetComponent<Health>().Damage(100000);
         }
     }
 }

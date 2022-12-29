@@ -8,7 +8,7 @@ public class boss1projectileSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject boss1projectilePrefab;
 
-    private float spawnTimer = 5f;
+    private float spawnTimer = 1.5f;
 
     // Start is called before the first frame update
     void Start()

@@ -19,6 +19,16 @@ public class Health : MonoBehaviour
         
     }
 
+    public int getHealth()
+    {
+        return health;
+    }
+
+    public int getMaxHealth()
+    {
+        return MAX_HEALTH;
+    }
+
     public void SetHealth(int maxHealth, int setHealth)
     {
         this.MAX_HEALTH = maxHealth;
