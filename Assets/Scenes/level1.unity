@@ -19062,6 +19062,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 208
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1714915385 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3265146543202490773, guid: 1c38d78975f08424090b2191e45c0213, type: 3}
+  m_PrefabInstance: {fileID: 3265146543084450394}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1717349532
 GameObject:
   m_ObjectHideFlags: 0
@@ -20387,6 +20392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_camera: {fileID: 519420031}
+  bossToFollow: {fileID: 1714915385}
 --- !u!1 &1854255274
 GameObject:
   m_ObjectHideFlags: 0

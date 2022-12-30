@@ -6,6 +6,7 @@ using UnityEngine;
 public class BossCamera : MonoBehaviour
 {
     [SerializeField] private Camera m_camera;
+    [SerializeField] private GameObject bossToFollow;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -15,6 +16,7 @@ public class BossCamera : MonoBehaviour
             if (vcam != null)
             {
                 vcam.m_Lens.OrthographicSize = 18.0f;
+                vcam.Follow = bossToFollow.transform;
             }
         }
     }
