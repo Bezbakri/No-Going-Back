@@ -16,6 +16,7 @@ public class boss1projectile : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        SetEnemyValues();
     }
 
     // Update is called once per frame

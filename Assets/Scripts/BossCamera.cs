@@ -18,6 +18,8 @@ public class BossCamera : MonoBehaviour
                 vcam.m_Lens.OrthographicSize = 18.0f;
                 vcam.Follow = bossToFollow.transform;
             }
+            GameObject bossCanvas = bossToFollow.transform.GetChild(0).gameObject;
+            bossCanvas.SetActive(true);
         }
     }
 }

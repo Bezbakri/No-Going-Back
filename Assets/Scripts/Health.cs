@@ -7,17 +7,8 @@ public class Health : MonoBehaviour
     [SerializeField] private int health = 100;
 
     [SerializeField] private int MAX_HEALTH = 100;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
     public int getHealth()
     {
@@ -50,6 +41,12 @@ public class Health : MonoBehaviour
         }
         this.health -= amount;
         StartCoroutine(VisualIndicator(Color.red));
+
+        if (this.GetComponent<HealthBar>() != null)
+        {
+            HealthBar healthBar = this.GetComponent<HealthBar>();
+            healthBar.UpdateHealthBar();
+        }
 
         if (health <= 0)
         {
