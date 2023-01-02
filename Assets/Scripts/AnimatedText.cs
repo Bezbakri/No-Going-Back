@@ -32,6 +32,8 @@ public class AnimatedText : MonoBehaviour
     {
         yield return new WaitForSeconds(startDelay);
 
+        indexChar = 0;
+
         currentText = "";
 
         // Store first letter
