@@ -60,7 +60,7 @@ public class boss1 : MonoBehaviour
     {
         GetComponent<Health>().SetHealth(data.hp, data.hp);
         damage = data.damage;
-
+        GetComponent<Health>().SetOrganic(data.isOrganic);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -686,6 +686,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   MAX_HEALTH: 100
+  isOrganic: 1
+  bloodPrefab: {fileID: 2259631609747596960, guid: 7d3f3f01c2b09ef48bcb7e847a066bda, type: 3}
+  bloodstainPrefab: {fileID: 5817442534907726396, guid: b100d488e47ae134da26efb6f7741960, type: 3}
 --- !u!114 &1595143063
 MonoBehaviour:
   m_ObjectHideFlags: 0

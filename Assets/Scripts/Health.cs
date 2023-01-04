@@ -8,7 +8,11 @@ public class Health : MonoBehaviour
 
     [SerializeField] private int MAX_HEALTH = 100;
 
-    
+    [SerializeField] private bool isOrganic;
+
+    [SerializeField] private GameObject bloodPrefab;
+
+    [SerializeField] private GameObject bloodstainPrefab;
 
     public int getHealth()
     {
@@ -26,11 +30,22 @@ public class Health : MonoBehaviour
         this.health = setHealth;
     }
 
+    public void SetOrganic(bool setOrganic)
+    {
+        this.isOrganic = setOrganic;
+    }
+
     public IEnumerator VisualIndicator(Color color)
     {
         GetComponent<SpriteRenderer>().color = color;
         yield return new WaitForSeconds(0.25f);
         GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
+    private IEnumerator spawnBloodStain(Vector3 position)
+    {
+        yield return new WaitForSeconds(0.5f);
+        GameObject bloodstain = Instantiate(bloodstainPrefab, position, Quaternion.identity);
     }
 
     public void Damage(int amount)
@@ -50,7 +65,13 @@ public class Health : MonoBehaviour
 
         if (health <= 0)
         {
+            Vector3 position = gameObject.transform.position;
             Die();
+            if (isOrganic)
+            {
+                GameObject blood = Instantiate(bloodPrefab, gameObject.transform.position, Quaternion.identity);
+                StartCoroutine(spawnBloodStain(position));
+            }
         }
     }
 

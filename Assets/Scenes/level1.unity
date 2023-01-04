@@ -2131,6 +2131,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 30
   MAX_HEALTH: 30
+  isOrganic: 0
+  bloodPrefab: {fileID: 0}
+  bloodstainPrefab: {fileID: 0}
 --- !u!1 &192036347
 GameObject:
   m_ObjectHideFlags: 0
@@ -4202,6 +4205,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 30
   MAX_HEALTH: 30
+  isOrganic: 0
+  bloodPrefab: {fileID: 0}
+  bloodstainPrefab: {fileID: 0}
 --- !u!1 &335497600
 GameObject:
   m_ObjectHideFlags: 0
@@ -11535,6 +11541,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   MAX_HEALTH: 10
+  isOrganic: 0
+  bloodPrefab: {fileID: 0}
+  bloodstainPrefab: {fileID: 0}
 --- !u!61 &978849282
 BoxCollider2D:
   m_ObjectHideFlags: 0
