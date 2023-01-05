@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6361699364643301059}
   - component: {fileID: 2027811566239262240}
+  - component: {fileID: -474875257354305413}
   m_Layer: 0
   m_Name: shadow_pre_attack
   m_TagString: Untagged
@@ -84,3 +85,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-474875257354305413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3260471829707427137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc7569690288516439e9ec30b590ddd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time_to_stay: 2.7
