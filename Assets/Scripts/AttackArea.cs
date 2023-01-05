@@ -5,6 +5,14 @@ using UnityEngine;
 public class AttackArea : MonoBehaviour
 {
     [SerializeField] private int damage;
+
+    public AudioClip attackSound;
+
+    private void Start()
+    {
+        GetComponent<AudioSource>().playOnAwake = false;
+        GetComponent<AudioSource>().clip = attackSound;
+    }
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -12,6 +20,7 @@ public class AttackArea : MonoBehaviour
         {
             Health health = collision.GetComponent<Health>();
             health.Damage(damage);
+            GetComponent<AudioSource>().Play();
         }
     }
 }
