@@ -7,6 +7,7 @@ public class OpeningCanvas : MonoBehaviour
 {
     [SerializeField] private Image openingImage;
     public float loadTime = 2f;
+    private bool startAnimation = false;
 
     // Start is called before the first frame update
     void Start()
@@ -17,10 +18,22 @@ public class OpeningCanvas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        openingImage.fillAmount -= 1.0f / loadTime * Time.deltaTime;
-        if (openingImage.fillAmount <= 0)
+        StartCoroutine(pauseGame());
+        if (startAnimation)
         {
-            Destroy(gameObject);
+            openingImage.fillAmount -= 1.0f / loadTime * Time.unscaledDeltaTime;
+            if (openingImage.fillAmount <= 0)
+            {
+                Destroy(gameObject);
+                Time.timeScale = 1.0f;
+            }
         }
+    }
+
+    private IEnumerator pauseGame()
+    {
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(loadTime);
+        startAnimation = true;
     }
 }

@@ -17,10 +17,6 @@ public class ClosingCanvas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        openingImage.fillAmount += 1.0f / loadTime * Time.deltaTime;
-        if (openingImage.fillAmount >= 1)
-        {
-            Destroy(gameObject);
-        }
+        openingImage.fillAmount += 1.0f / loadTime * Time.unscaledDeltaTime;
     }
 }

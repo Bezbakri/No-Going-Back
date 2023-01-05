@@ -296,6 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: 
+  closingCanvasPrefab: {fileID: 2595621610199011817, guid: 09793870ba412734abeb4e72ee14b4ba, type: 3}
 --- !u!1 &5108063632483519303
 GameObject:
   m_ObjectHideFlags: 0
