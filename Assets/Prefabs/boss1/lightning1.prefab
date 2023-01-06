@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4891143344772888720}
   - component: {fileID: 8782076790875278368}
   - component: {fileID: 1427902093886957361}
+  - component: {fileID: 6901395502560437104}
   m_Layer: 0
   m_Name: lightning1
   m_TagString: Untagged
@@ -105,3 +106,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6901395502560437104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5382705937079870137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc7569690288516439e9ec30b590ddd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time_to_stay: 0.5
