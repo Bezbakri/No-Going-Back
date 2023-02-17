@@ -12,12 +12,20 @@ public class AnimatedText : MonoBehaviour
     [SerializeField] private TextMeshProUGUI displayedText;
     [SerializeField] private float delayBetweenLetters = 0.05f;
 
+    [SerializeField] private AudioClip _audioSource;
+
     private string textToAnimate;
     private string currentText;
 
     private char[] splitMessage;
     private int indexChar = 0;
     private char previousChar;
+
+    private void Start()
+    {
+        GetComponent<AudioSource>().playOnAwake = false;
+        GetComponent<AudioSource>().clip = _audioSource;
+    }
 
     public void AnimateText(float startDelay, string text)
     {
@@ -39,6 +47,10 @@ public class AnimatedText : MonoBehaviour
         // Store first letter
         previousChar = splitMessage[0];
         displayedText.text = "<i><color=yellow>" + splitMessage[indexChar] + "</color></i>";
+        if (_audioSource != null)
+        {
+            GetComponent<AudioSource>().Play();
+        }
 
         indexChar = 1;
         while(indexChar < splitMessage.Length)
@@ -48,6 +60,12 @@ public class AnimatedText : MonoBehaviour
             // Add text
             currentText += previousChar;
             displayedText.text = currentText + "<i><color=yellow>" + splitMessage[indexChar] + "</color></i>";
+
+            // Play sound
+            if (_audioSource != null)
+            {
+                GetComponent<AudioSource>().Play();
+            }
 
             // Save previous char
             previousChar = splitMessage[indexChar];
